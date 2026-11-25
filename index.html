@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<meta name="color-scheme" content="light dark">
+<title>Clairance de la créatinine – DFG estimé</title>
+<style>
+:root{--bg:#f2f6f6;--card:#fff;--tx:#12201f;--mu:#5b6b6a;--bd:#d5e0df;--pr:#0f766e;--prt:#fff;--ac:#e6f4f2;--er:#b42318;
+--g1:#16a34a;--g2:#65a30d;--g3a:#ca8a04;--g3b:#ea580c;--g4:#dc2626;--g5:#991b1b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1514;--card:#16211f;--tx:#e8f1f0;--mu:#93a6a4;--bd:#2a3b39;--pr:#2dd4bf;--prt:#042f2b;--ac:#12332f;--er:#f97066;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1514;--card:#16211f;--tx:#e8f1f0;--mu:#93a6a4;--bd:#2a3b39;--pr:#2dd4bf;--prt:#042f2b;--ac:#12332f;--er:#f97066;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;min-height:100vh;display:flex;flex-direction:column;-webkit-tap-highlight-color:transparent}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--bd);padding:10px max(14px,env(safe-area-inset-left,0px)) 10px max(14px,env(safe-area-inset-left,0px));display:flex;align-items:center;justify-content:space-between;gap:10px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+h1{font-size:1.05rem;margin:0;line-height:1.2}
+h1 small{display:block;font-weight:400;color:var(--mu);font-size:.78rem}
+main{width:100%;max-width:680px;margin:0 auto;padding:14px max(14px,env(safe-area-inset-left,0px)) 24px;flex:1}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:16px;margin-bottom:14px}
+label,.lb{display:block;font-weight:600;font-size:.9rem;margin:0 0 6px}
+.fld{margin-bottom:14px}.fld:last-child{margin-bottom:0}
+.row{display:flex;gap:8px}.row>input{flex:1;min-width:0}
+input[type=text],select{width:100%;min-height:48px;font:inherit;font-size:16px;color:var(--tx);background:var(--bg);border:1.5px solid var(--bd);border-radius:12px;padding:10px 12px;appearance:none;-webkit-appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--mu) 50%),linear-gradient(135deg,var(--mu) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 12px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:32px}
+.row select{width:auto;min-width:104px;flex:0 0 auto}
+input:focus,select:focus,button:focus-visible{outline:3px solid color-mix(in srgb,var(--pr) 45%,transparent);outline-offset:1px;border-color:var(--pr)}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:flex;align-items:center;justify-content:center;min-height:48px;border:1.5px solid var(--bd);border-radius:12px;font-weight:600;background:var(--bg);margin:0}
+.seg input:checked+span{background:var(--pr);color:var(--prt);border-color:var(--pr)}
+.seg input:focus-visible+span{outline:3px solid color-mix(in srgb,var(--pr) 45%,transparent)}
+.chk{display:flex;align-items:center;gap:12px;min-height:48px;font-weight:500;margin:0}
+.chk input{width:24px;height:24px;accent-color:var(--pr);flex:none}
+.hint{font-size:.8rem;color:var(--mu);margin:5px 0 0}
+.eq{margin-top:10px;padding:10px 12px;border:1px dashed var(--pr);border-radius:10px;background:var(--ac);font-size:.88rem}
+.eq code{display:block;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86rem;font-weight:600;word-break:break-word}
+.eq small{display:block;color:var(--mu);margin-top:6px;font-size:.78rem}
+.err{color:var(--er);font-size:.82rem;margin:5px 0 0;min-height:0}
+input.bad{border-color:var(--er)}
+button{font:inherit;font-weight:700;border:0;border-radius:12px;min-height:48px;padding:0 18px;cursor:pointer;touch-action:manipulation}
+.main{width:100%;background:var(--pr);color:var(--prt);font-size:1.05rem;margin-top:6px}
+.rst{background:var(--ac);color:var(--pr);border:1.5px solid var(--pr);min-height:44px;padding:0 14px;white-space:nowrap}
+.note{font-size:.84rem;color:var(--mu);background:var(--ac);border-radius:10px;padding:9px 11px;margin:0 0 14px}
+#res{display:none}
+.big{text-align:center;padding:6px 0 14px}
+.big b{font-size:2.4rem;line-height:1;display:block;font-variant-numeric:tabular-nums}
+.big span{color:var(--mu);font-size:.9rem}
+.chip{display:inline-block;margin-top:10px;padding:5px 14px;border-radius:99px;color:#fff;font-weight:700}
+.tw{overflow-x:auto;border:1px solid var(--bd);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:420px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--bd)}
+th{background:var(--ac);font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+tr:last-child td{border-bottom:0}
+tr.on td{background:color-mix(in srgb,var(--pr) 18%,transparent);font-weight:700}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
+.interp{margin-top:14px;border-left:5px solid var(--pr);background:var(--ac);border-radius:0 12px 12px 0;padding:12px 14px}
+.interp h3{margin:0 0 6px;font-size:1rem}.interp p{margin:0 0 8px}.interp p:last-child{margin:0}
+.disc{font-size:.78rem;color:var(--mu);margin-top:12px}
+footer{text-align:center;color:var(--mu);font-size:.82rem;padding:16px 14px calc(16px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--bd)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header>
+  <h1>Clairance de la créatinine<small>DFG estimé · classification KDIGO</small></h1>
+  <button type="button" class="rst" id="reset" aria-label="Réinitialiser tous les champs">↺ Réinitialiser</button>
+</header>
+<main>
+<form id="f" class="card" novalidate autocomplete="off">
+  <div class="fld">
+    <label for="formula">Formule</label>
+    <select id="formula">
+      <option value="mdrd4" selected>MDRD à 4 variables</option>
+      <option value="mdrd6">MDRD à 6 variables</option>
+      <option value="ckdepi">CKD-EPI</option>
+      <option value="cg">Cockcroft et Gault</option>
+      <option value="schwartz">Schwartz (enfant)</option>
+      <option value="cb">Counahan-Barratt (enfant)</option>
+    </select>
+    <p class="hint" id="fhint"></p>
+    <div class="eq" id="eq"></div>
+  </div>
+
+  <div class="fld" data-for="ckdepi">
+    <label for="ver">Version CKD-EPI</label>
+    <select id="ver">
+      <option value="2021" selected>CKD-EPI 2021 (sans coefficient ethnique)</option>
+      <option value="2009">CKD-EPI 2009 (avec coefficient ethnique)</option>
+    </select>
+  </div>
+
+  <div class="fld" data-for="mdrd4 mdrd6 ckdepi cg">
+    <label for="age">Âge (années)</label>
+    <input type="text" id="age" inputmode="decimal" placeholder="ex. 54">
+    <p class="err" id="e_age"></p>
+  </div>
+
+  <div class="fld" data-for="mdrd4 mdrd6 ckdepi cg">
+    <span class="lb">Sexe</span>
+    <div class="seg">
+      <label><input type="radio" name="sex" value="M" checked><span>Homme</span></label>
+      <label><input type="radio" name="sex" value="F"><span>Femme</span></label>
+    </div>
+  </div>
+
+  <div class="fld" data-for="mdrd4 mdrd6 ckdepi" id="blackFld">
+    <label class="chk"><input type="checkbox" id="black" checked> Origine africaine / afro-descendante</label>
+  </div>
+
+  <div class="fld" data-for="schwartz" >
+    <label for="k">Constante k (Schwartz)</label>
+    <select id="k">
+      <option value="0.413" selected>0,413 – Schwartz actualisée 2009 (1–16 ans)</option>
+      <option value="0.55">0,55 – Enfant (2–12 ans) / adolescente</option>
+      <option value="0.70">0,70 – Adolescent garçon (13–18 ans)</option>
+      <option value="0.45">0,45 – Nourrisson né à terme (&lt; 1 an)</option>
+      <option value="0.33">0,33 – Prématuré</option>
+    </select>
+  </div>
+
+  <div class="fld" data-for="mdrd4 mdrd6 ckdepi cg schwartz cb">
+    <label for="scr">Créatinine sérique</label>
+    <div class="row">
+      <input type="text" id="scr" inputmode="decimal" placeholder="ex. 1,1">
+      <select id="scrU" aria-label="Unité de la créatinine">
+        <option value="mgdl" selected>mg/dL</option>
+        <option value="mmol">mmol/L</option>
+        <option value="umol">µmol/L</option>
+      </select>
+    </div>
+    <p class="hint">1 mg/dL = 0,0884 mmol/L = 88,4 µmol/L</p>
+    <p class="hint" id="c_scr"></p>
+    <p class="err" id="e_scr"></p>
+  </div>
+
+  <div class="fld" data-for="mdrd6">
+    <label for="bun">Urée sanguine</label>
+    <div class="row">
+      <input type="text" id="bun" inputmode="decimal" placeholder="ex. 18">
+      <select id="bunU" aria-label="Unité de l’urée">
+        <option value="mgdl" selected>mg/dL (BUN)</option>
+        <option value="mmol">mmol/L (urée)</option>
+      </select>
+    </div>
+    <p class="hint">BUN (mg/dL) = urée (mmol/L) × 2,8</p>
+    <p class="hint" id="c_bun"></p>
+    <p class="err" id="e_bun"></p>
+  </div>
+
+  <div class="fld" data-for="mdrd6">
+    <label for="alb">Albumine sérique</label>
+    <div class="row">
+      <input type="text" id="alb" inputmode="decimal" placeholder="ex. 4,0">
+      <select id="albU" aria-label="Unité de l’albumine">
+        <option value="gdl" selected>g/dL</option>
+        <option value="gl">g/L</option>
+      </select>
+    </div>
+    <p class="hint">1 g/dL = 10 g/L</p>
+    <p class="hint" id="c_alb"></p>
+    <p class="err" id="e_alb"></p>
+  </div>
+
+  <div class="fld" data-for="cg">
+    <label for="wt">Poids (kg)</label>
+    <input type="text" id="wt" inputmode="decimal" placeholder="ex. 70">
+    <p class="err" id="e_wt"></p>
+  </div>
+
+  <div class="fld" data-for="cg schwartz cb">
+    <label for="ht" id="htl">Taille (cm)</label>
+    <input type="text" id="ht" inputmode="decimal" placeholder="ex. 120">
+    <p class="hint" id="hthint" hidden>Facultative : permet de ramener le résultat à 1,73 m² (surface de Mosteller).</p>
+    <p class="err" id="e_ht"></p>
+  </div>
+
+  <button type="submit" class="main">Calculer</button>
+</form>
+
+<section id="res" class="card" aria-live="polite">
+  <div class="big">
+    <b id="val">–</b>
+    <span id="unit">mL/min/1,73 m²</span><br>
+    <span class="chip" id="chip">G1</span>
+    <p class="hint" id="rnote"></p>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Stade</th><th>DFG (mL/min/1,73 m²)</th><th>Description</th></tr></thead>
+      <tbody id="tb"></tbody>
+    </table>
+  </div>
+  <div class="interp" id="interp"></div>
+  <p class="disc">Outil d’aide indicatif : il ne remplace ni le jugement clinique ni l’avis d’un professionnel de santé. Le diagnostic de maladie rénale chronique nécessite une anomalie persistante depuis plus de 3 mois.</p>
+</section>
+</main>
+<footer>Une production de Sinsu Ndongala - copyright © 2026</footer>
+
+<script>
+(function(){
+"use strict";
+var $=function(i){return document.getElementById(i)};
+var STAGES=[
+ {id:"G1",min:90,max:Infinity,rng:"≥ 90",d:"Normal ou élevé",c:"--g1",
+  t:"Fonction rénale normale ou élevée.",
+  p:"On ne parle de maladie rénale chronique (MRC) que s’il existe des marqueurs d’atteinte rénale persistant plus de 3 mois (albuminurie, anomalie du sédiment urinaire, anomalie à l’imagerie ou à l’histologie, atteinte tubulaire…). Sans marqueur, aucune MRC."},
+ {id:"G2",min:60,max:90,rng:"60 – 89",d:"Légèrement diminué",c:"--g2",
+  t:"Diminution légère du DFG.",
+  p:"Correspond souvent à un vieillissement normal. MRC seulement en présence d’autres marqueurs d’atteinte rénale persistant plus de 3 mois. Contrôler la tension artérielle, la glycémie et l’albuminurie."},
+ {id:"G3a",min:45,max:60,rng:"45 – 59",d:"Légèrement à modérément diminué",c:"--g3a",
+  t:"Diminution légère à modérée du DFG : MRC si persistante plus de 3 mois.",
+  p:"Surveillance régulière de la fonction rénale et de l’albuminurie, prise en charge du risque cardiovasculaire, éviction des néphrotoxiques (AINS…) et adaptation des doses des médicaments à élimination rénale."},
+ {id:"G3b",min:30,max:45,rng:"30 – 44",d:"Modérément à sévèrement diminué",c:"--g3b",
+  t:"Diminution modérée à sévère du DFG.",
+  p:"Avis néphrologique recommandé. Rechercher les complications (anémie, troubles phosphocalciques, acidose, hyperkaliémie), adapter systématiquement les posologies et renforcer la surveillance."},
+ {id:"G4",min:15,max:30,rng:"15 – 29",d:"Sévèrement diminué",c:"--g4",
+  t:"Diminution sévère du DFG (insuffisance rénale chronique sévère).",
+  p:"Suivi néphrologique spécialisé indispensable. Préparer le traitement de suppléance (dialyse, transplantation, traitement conservateur), protéger le capital veineux, éviter strictement les néphrotoxiques et traiter les complications."},
+ {id:"G5",min:-Infinity,max:15,rng:"< 15",d:"Défaillance rénale",c:"--g5",
+  t:"Insuffisance rénale terminale (défaillance rénale).",
+  p:"Prise en charge néphrologique urgente ou rapprochée : mise en route d’un traitement de suppléance (hémodialyse, dialyse péritonéale) ou transplantation à discuter, selon la clinique et le projet du patient."}
+];
+var HINTS={
+ mdrd4:"MDRD (IDMS, 175) : créatinine, âge, sexe, origine. Adulte, résultat en mL/min/1,73 m².",
+ mdrd6:"MDRD à 6 variables : ajoute l’urée et l’albumine. Adulte, résultat en mL/min/1,73 m².",
+ ckdepi:"CKD-EPI : créatinine, âge, sexe (et origine pour la version 2009). Adulte.",
+ cg:"Cockcroft-Gault : créatinine, âge, sexe, poids. Résultat brut en mL/min (non indexé).",
+ schwartz:"Schwartz : DFG = k × taille / créatinine. Réservée à l’enfant et à l’adolescent.",
+ cb:"Counahan-Barratt : DFG = 0,43 × taille / créatinine. Réservée à l’enfant."
+};
+var tb=$("tb");
+STAGES.forEach(function(s){
+ var tr=document.createElement("tr");tr.id="r_"+s.id;
+ tr.innerHTML='<td><span class="dot" style="background:var('+s.c+')"></span>'+s.id+'</td><td>'+s.rng+'</td><td>'+s.d+'</td>';
+ tb.appendChild(tr);
+});
+
+function num(id){var v=String($(id).value).trim().replace(/\s/g,"").replace(",",".");if(v==="")return NaN;return /^\d*\.?\d+$|^\d+\.$/.test(v)?parseFloat(v):NaN}
+function sex(){return document.querySelector('input[name="sex"]:checked').value}
+function fmt(n,d){return n.toFixed(d).replace(".",",")}
+
+function refresh(){
+ var f=$("formula").value;
+ document.querySelectorAll("[data-for]").forEach(function(el){
+  el.hidden=el.getAttribute("data-for").split(" ").indexOf(f)<0;
+ });
+ if(f==="ckdepi"&&$("ver").value==="2021")$("blackFld").hidden=true;
+ $("hthint").hidden=f!=="cg";
+ $("htl").textContent=f==="cg"?"Taille (cm) – facultative":"Taille (cm)";
+ $("fhint").textContent=HINTS[f];
+ showEq(f);
+ conv();
+ clearErr();
+ $("res").style.display="none";
+}
+var CU={
+ scr:{mgdl:{l:"mg/dL",d:2,to:function(v){return v},from:function(b){return b}},mmol:{l:"mmol/L",d:4,to:function(v){return v/0.0884},from:function(b){return b*0.0884}},umol:{l:"µmol/L",d:1,to:function(v){return v/88.4},from:function(b){return b*88.4}}},
+ bun:{mgdl:{l:"mg/dL (BUN)",d:2,to:function(v){return v},from:function(b){return b}},mmol:{l:"mmol/L (urée)",d:2,to:function(v){return v*2.801},from:function(b){return b/2.801}}},
+ alb:{gdl:{l:"g/dL",d:2,to:function(v){return v},from:function(b){return b}},gl:{l:"g/L",d:1,to:function(v){return v/10},from:function(b){return b*10}}}
+};
+function conv(){
+ ["scr","bun","alb"].forEach(function(id){
+  var el=$("c_"+id),v=num(id),U=CU[id],u=$(id+"U").value;
+  if(isNaN(v)||v<=0){el.textContent="Équivalences : saisissez une valeur";return}
+  var b=U[u].to(v),out=[];
+  Object.keys(U).forEach(function(k){if(k!==u)out.push(fmt(U[k].from(b),U[k].d)+" "+U[k].l)});
+  el.textContent="Équivalence : "+out.join(" · ");
+ });
+}
+function showEq(f){
+ var c="",l="",sc="Scr = créatinine sérique (mg/dL) · Âge en années";
+ if(f==="mdrd4"){c="DFG = 175 × Scr<sup>−1,154</sup> × Âge<sup>−0,203</sup> × 0,742 (si femme) × 1,212 (si origine africaine)";l=sc}
+ else if(f==="mdrd6"){c="DFG = 170 × Scr<sup>−0,999</sup> × Âge<sup>−0,176</sup> × Urée<sup>−0,170</sup> × Alb<sup>0,318</sup> × 0,762 (si femme) × 1,18 (si origine africaine)";l=sc+" · Urée = BUN (mg/dL) · Alb = albumine (g/dL)"}
+ else if(f==="ckdepi"){
+  if($("ver").value==="2021"){c="DFG = 142 × min(Scr/κ ; 1)<sup>α</sup> × max(Scr/κ ; 1)<sup>−1,200</sup> × 0,9938<sup>Âge</sup> × 1,012 (si femme)";l=sc+" · κ = 0,7 (femme) ou 0,9 (homme) · α = −0,241 (femme) ou −0,302 (homme)"}
+  else{c="DFG = 141 × min(Scr/κ ; 1)<sup>α</sup> × max(Scr/κ ; 1)<sup>−1,209</sup> × 0,993<sup>Âge</sup> × 1,018 (si femme) × 1,159 (si origine africaine)";l=sc+" · κ = 0,7 (femme) ou 0,9 (homme) · α = −0,329 (femme) ou −0,411 (homme)"}
+ }
+ else if(f==="cg"){c="DFG = [(140 − Âge) × Poids] / (72 × Scr) × 0,85 (si femme)";l=sc+" · Poids en kg · Si la taille est renseignée : résultat × 1,73 / SC, avec SC = √(Taille × Poids / 3600)"}
+ else if(f==="schwartz"){c="DFG = k × Taille / Scr";l="Scr en mg/dL · Taille en cm · k selon l’âge (0,413 pour la formule actualisée)"}
+ else{c="DFG = 0,43 × Taille / Scr";l="Scr en mg/dL · Taille en cm"}
+ $("eq").innerHTML="<code>"+c+"</code><small>"+l+"</small>";
+}
+function clearErr(){
+ document.querySelectorAll(".err").forEach(function(e){e.textContent=""});
+ document.querySelectorAll("input.bad").forEach(function(e){e.classList.remove("bad")});
+}
+function bad(id,msg){$("e_"+id).textContent=msg;$(id).classList.add("bad");return false}
+
+function calc(){
+ clearErr();
+ var f=$("formula").value,ok=true,first=null;
+ function chk(id,min,max,label,optional){
+  var v=num(id);
+  if(isNaN(v)){if(optional&&String($(id).value).trim()==="")return NaN;ok=false;bad(id,"Saisissez une valeur numérique valide.");first=first||id;return NaN}
+  if(v<min||v>max){ok=false;bad(id,label+" : valeur attendue entre "+min+" et "+max+".");first=first||id;return NaN}
+  return v;
+ }
+ var age,scr,bun,alb,wt,ht;
+ var adult=f==="mdrd4"||f==="mdrd6"||f==="ckdepi"||f==="cg";
+ if(adult)age=chk("age",18,120,"Âge");
+ // créatinine → mg/dL
+ var s=num("scr"),u=$("scrU").value;
+ if(isNaN(s)||s<=0){ok=false;bad("scr","Saisissez une créatinine valide (> 0).");first=first||"scr"}
+ else{scr=u==="mgdl"?s:u==="mmol"?s/0.0884:s/88.4;
+  if(scr<0.1||scr>30){ok=false;bad("scr","Valeur hors plage plausible ("+fmt(scr,2)+" mg/dL).");first=first||"scr"}}
+ if(f==="mdrd6"){
+  var b=num("bun");
+  if(isNaN(b)||b<=0){ok=false;bad("bun","Saisissez une valeur valide (> 0).");first=first||"bun"}
+  else bun=$("bunU").value==="mgdl"?b:b*2.801;
+  var a=num("alb");
+  if(isNaN(a)||a<=0){ok=false;bad("alb","Saisissez une valeur valide (> 0).");first=first||"alb"}
+  else{alb=$("albU").value==="gdl"?a:a/10;
+   if(alb<0.5||alb>7){ok=false;bad("alb","Valeur hors plage plausible.");first=first||"alb"}}
+ }
+ if(f==="cg")wt=chk("wt",2,400,"Poids");
+ if(f==="cg")ht=chk("ht",50,250,"Taille",true);
+ if(f==="schwartz"||f==="cb")ht=chk("ht",30,220,"Taille");
+ if(!ok){var el=$(first);if(el)el.focus();$("res").style.display="none";return}
+
+ var female=sex()==="F",black=$("black").checked,r,note="",unit="mL/min/1,73 m²",g;
+ if(f==="mdrd4"){
+  r=175*Math.pow(scr,-1.154)*Math.pow(age,-0.203)*(female?0.742:1)*(black?1.212:1);
+ }else if(f==="mdrd6"){
+  r=170*Math.pow(scr,-0.999)*Math.pow(age,-0.176)*Math.pow(bun,-0.170)*Math.pow(alb,0.318)*(female?0.762:1)*(black?1.18:1);
+ }else if(f==="ckdepi"){
+  if($("ver").value==="2021"){
+   var kp=female?0.7:0.9,al=female?-0.241:-0.302,q=scr/kp;
+   r=142*Math.pow(Math.min(q,1),al)*Math.pow(Math.max(q,1),-1.2)*Math.pow(0.9938,age)*(female?1.012:1);
+  }else{
+   var k2=female?0.7:0.9,a2=female?-0.329:-0.411,q2=scr/k2;
+   r=141*Math.pow(Math.min(q2,1),a2)*Math.pow(Math.max(q2,1),-1.209)*Math.pow(0.993,age)*(female?1.018:1)*(black?1.159:1);
+  }
+ }else if(f==="cg"){
+  var cg=(140-age)*wt/(72*scr)*(female?0.85:1);
+  if(!isNaN(ht)){
+   var bsa=Math.sqrt(ht*wt/3600);
+   g=cg*1.73/bsa;
+   note="Clairance brute : "+fmt(cg,0)+" mL/min · surface corporelle : "+fmt(bsa,2)+" m² · résultat ramené à 1,73 m².";
+   r=g;
+  }else{
+   r=cg;unit="mL/min (non indexé)";
+   note="Résultat brut non indexé sur la surface corporelle. Renseignez la taille pour obtenir une valeur en mL/min/1,73 m² adaptée à la classification KDIGO.";
+  }
+ }else if(f==="schwartz"){
+  r=parseFloat($("k").value)*ht/scr;
+ }else{
+  r=0.43*ht/scr;
+ }
+ show(r,unit,note,f);
+}
+
+function show(r,unit,note,f){
+ var st=STAGES.filter(function(s){return r>=s.min&&r<s.max})[0];
+ $("val").textContent=fmt(r,4);
+ $("unit").textContent=unit;
+ var ch=$("chip");ch.textContent=st.id+" · "+st.d;ch.style.background="var("+st.c+")";
+ $("rnote").textContent=note;
+ STAGES.forEach(function(s){$("r_"+s.id).className=s.id===st.id?"on":""});
+ var ped=(f==="schwartz"||f==="cb")?"<p>Formule pédiatrique : l’interprétation des stades chez l’enfant doit être faite par un pédiatre ou un néphrologue pédiatre (la classification KDIGO s’applique à partir de 2 ans ; avant, le DFG est physiologiquement plus bas).</p>":"";
+ var cgw=(f==="cg"&&unit.indexOf("non")>-1)?"<p>Classement indicatif : la valeur n’étant pas indexée à 1,73 m², il peut être imprécis chez les patients de morphologie extrême.</p>":"";
+ $("interp").style.borderLeftColor="var("+st.c+")";
+ $("interp").innerHTML="<h3>Interprétation KDIGO – stade "+st.id+" ("+st.d.toLowerCase()+")</h3><p><b>"+st.t+"</b></p><p>"+st.p+"</p>"+ped+cgw;
+ $("res").style.display="block";
+ $("res").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function resetAll(){
+ $("f").reset();
+ $("formula").value="mdrd4";
+ $("ver").value="2021";$("scrU").value="mgdl";$("bunU").value="mgdl";$("albU").value="gdl";$("k").value="0.413";
+ refresh();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+$("f").addEventListener("submit",function(e){e.preventDefault();calc()});
+$("formula").addEventListener("change",refresh);
+$("ver").addEventListener("change",refresh);
+$("reset").addEventListener("click",resetAll);
+["scr","bun","alb"].forEach(function(id){$(id).addEventListener("input",conv);$(id+"U").addEventListener("change",conv)});
+document.querySelectorAll("input[type=text]").forEach(function(i){i.addEventListener("input",function(){i.classList.remove("bad");var e=$("e_"+i.id);if(e)e.textContent=""})});
+refresh();
+})();
+</script>
+</body>
+</html>
